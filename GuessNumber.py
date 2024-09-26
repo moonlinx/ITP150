@@ -9,7 +9,7 @@ random.seed()
 randomNumber = int(random.random() * 32)
 
 # Set guess to an empty variable to initialize the loop
-guess = None
+guess = 0
 
 # Set the for loop and give the user 5 tries to guess the number
 for x in range(5):
