@@ -9,9 +9,9 @@ while userNumber >= 0:
     if userNumber >= 0:
         total += userNumber
         count += 1
-        if userNumber <= min:
+    if userNumber <= min:
             min = userNumber
-        if userNumber >= max:
+    if userNumber >= max:
             max = userNumber
 
 print(f"min: {min}, max: {max}, avg: {total/count}")

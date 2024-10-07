@@ -42,15 +42,18 @@ incorrect = 0  # number of incorrect questions answered
 numQuestions = 10
 
 for x in range(numQuestions):
-    oper1 = int(random.randint(0, 9) * 10)
+    # oper1 = int(random.randint(0, 9))
+    oper1 = int(random.random() * 10)
     
-    oper2 = int(random.randint(0, 9) * 10)
+    # oper2 = int(random.randint(0, 9))
+    oper2 = int(random.random() * 10)
 
     # generate a random number for 2 options: addition or subtraction
-    problemtype = int(random.randint(0,1))
+    # problemType = int(random.randint(0,1))
+    problemType = int(random.random() * 3)
 
     # if addition, generate a question for oper1 + oper2
-    if problemtype == 0:
+    if problemType == 0:
         answer = oper1 + oper2
         print(f"what is {oper1} + {oper2}?")
     # else (i.e. subtraction) generate a question for oper1 - oper2
@@ -58,9 +61,17 @@ for x in range(numQuestions):
         answer = oper1 - oper2
         print(f"what is {oper1} - {oper2}?")
     # display the results of the question and display the answer only if they got it wrong
-    
+    userAnswer = int(input("Your answer: "))
+    if userAnswer == answer:
+        print("correct!")
+        correct += 1
+    else:
+        print(f"incorrect, answer is:  {answer}")
+        incorrect += 1
+    #NOTE: I'm not too sure how to implement this yet
+    # Ask the professor how to do this
     # increment correct or incorrect
 
-
-# after the loop, display the results:  num of correct and incorrect
+    # after the loop, display the results:  num of correct and incorrect
+print(f"correct: {correct}, incorrect: {incorrect}")
 
