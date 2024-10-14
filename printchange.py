@@ -4,8 +4,7 @@ Student name: Devin Delaney
 Program: given an amount of money, this program will display the amount in change:
 quarters, dimes, nickels, and pennies
 NOTE: use // with division so that you get a whole number
-"""
-"""
+
 The text prompts the user to enter an amount, converts it to pennies, and then calculates the number of quarters, dimes, nickels, and pennies in that amount. It also includes comments and warnings about potential errors in the calculations.
 """
 
@@ -24,3 +23,4 @@ dimes = dimes % 10
 #WARNING: if you divide by 0, you will get infinity.
 
 print(f"amount: {amount}\nquarters: {quarters}\ndimes: {dimes}\nnickels: {nickels}\npennies: {pennies}")
+
