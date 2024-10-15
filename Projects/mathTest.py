@@ -1,5 +1,8 @@
 # Project for ITP
 """ 
+Student Name: Devin Delaney
+Project Name: Math Test
+Project Description:
 With this project, you will expand on the Math Quiz lab by adding the following features:
 • Prompt the user for the number of questions specified by numQuestions
 Note: For testing purposes, I might try 5 and 20.
@@ -16,7 +19,7 @@ Project is a math test that gives 10 questions and then takes the amount correct
 """
 # MAP:
 # 1. import random and time modules
-# 2. initialize the modules
+# 2. initialize the modules and seed the random module
 # 3. set the variables:
 #   a. correct guesses
 #   b. incorrect guesses
@@ -24,9 +27,16 @@ Project is a math test that gives 10 questions and then takes the amount correct
 #   d. operands == 2
 #   e. problem types = addition, subtraction, multiplication
 #   f. need a loop to keep count
+#   g. start time
+#   h. end time
+#   i. time taken
+#   j. question times
+#   k. number of questions
 #   g. final grade
+#   l. feedback
 # 4. Show how many are correct and incorrect and time taken to complete the questions
 # 5. Give a grade
+# 6. Give feedback
 
 import random
 import time
@@ -41,15 +51,21 @@ startTime = time.time()
 endTime = time.time()
 userTime = int(endTime - startTime + .5) # Round to nearest second
 question_times = []
-numQuestions = 15
+numQuestions = int(input("How many questions do you want?\n#: "))
+
+# Variables for difficulty increase
+consecutive_correct = 0
+difficulty_level = 0
+range_start = 0
+range_end = 10
 
 # Code goes here 
 
 # Loop through questions with operands and problem types
 for x in range(numQuestions):
     startTime = time.time()
-    oper1 = random.randint(0, 10)
-    oper2 = random.randint(0, 10)
+    oper1 = random.randint(range_start, range_end)
+    oper2 = random.randint(range_start, range_end)
     
     # Set the problem types == addition, subtraction, multiplication
     problemType = random.randint(0, 2)
@@ -66,49 +82,60 @@ for x in range(numQuestions):
     elif problemType == 2:
         answer = oper1 * oper2
         print(f"what is {oper1} * {oper2}?")
-    # display the resutls of the question 
+    # Get the user's answer 
     userAnswer = int(input("Your answer: "))
 
     # Check the answer
     if userAnswer == answer:
-        print("Correct")
+        print("Correct!")
         correct += 1
+        consecutive_correct += 1
+
+        # For difficulty increase
+        if consecutive_correct == 3:
+            difficulty_level +=1
+            range_start += 5
+            range_end += 5
+            consecutive_correct = 0
+            print(f"Difficulty increased to {difficulty_level}!")
     else:
-        print("Incorrect")
+        print(f"Incorrect the answer was {answer}")
         incorrect += 1
+        consecutive_correct = 0
 
     endTime = time.time()
     userTime = int(endTime - startTime + .5) # Round to nearest second
     question_times.append(userTime)
-    print(f"Time taken: {userTime} seconds")
-
-    if correct == 3:
-        oper1 = random.randint(10, 20)
-        oper2 = random.randint(10, 20)
-    elif correct == 6:
-        oper1 = random.randint(20, 30)
-        oper2 = random.randint(20, 30)
+    print(f"Time taken: {userTime} seconds\n")
 
 # Calculate the grade
 grade = (correct / numQuestions) * 100
+if grade >= 90:
+    grade = "A"
+elif grade >= 80:
+    grade = "B"
+elif grade >= 70:
+    grade = "C"
+elif grade >= 60:
+    grade = "D"
+else:
+    grade = "F"
 
 # Determine grade feedback
-if grade >= 90.0:
-    feedback = "Congrats"
-elif grade >= 80.0:
-    feedback = "Good job"
-elif grade >= 70.0:
-    feedback = "Pretty good"
-elif grade >= 60.0:
-    feedback = "Not bad"
-elif grade >= 50.0:
-    feedback = "You can do better"
-else:
-    feedback = "Better luck next time"
+if grade == "A":
+    feedback = "Excellent!"
+elif grade == "B":
+    feedback = "Good job!"
+elif grade == "C":
+    feedback = "Middeling."
+elif grade == "D":
+    feedback = "Needs work."
+elif grade == "F":
+    feedback = "Better luck next time."
 
 # Display the results
 print(f"Correct: {correct}")
 print(f"Incorrect: {incorrect}")
-print(f"Grade: {grade:.1f}%")
+print(f"Grade: {grade}")
 print(f"Feedback: {feedback}")
 print(f"Time taken: {sum(question_times)} seconds")
