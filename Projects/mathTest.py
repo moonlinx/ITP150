@@ -37,6 +37,8 @@ Project is a math test that gives 10 questions and then takes the amount correct
 # 4. Show how many are correct and incorrect and time taken to complete the questions
 # 5. Give a grade
 # 6. Give feedback
+# 7. Display the results
+# 8. End
 
 import random
 import time

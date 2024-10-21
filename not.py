@@ -8,3 +8,10 @@ else:
 x = ("""I am trying to print this right here using tripple quotes that's how it "goes", no?""")
 
 print(x[5:11])
+
+x = ("""I am trying to print this right here using tripple quotes that's how it "goes", no?""")
+
+print(x[5:11])
+
+x = ("""I am trying to print this right here using tripple quotes that's how it "goes", no?""")
+print(x[5:11])
