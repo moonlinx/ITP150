@@ -1,4 +1,8 @@
-def my_function(*kids):
-    print("The youngest child is " + kids[2])
+def cigar_party(cigars, is_weekend):
+    if cigars < 40:
+        return False
 
-my_function("Emil", "Tobias", "Linus")
+    if is_weekend:
+        return True
+
+    return cigars <=60
