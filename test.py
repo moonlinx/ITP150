@@ -1,12 +1,11 @@
 numList = [7,4,1,3,9,8,6,5,2,0]
 print(numList)
-numList.sort()
-print(numList)
 
 while True:
-    num = int(input("Enter a number to add to the list: "))
-    if num == -1:
+    num = int(input("Enter a number to add to the list or enter 'e' to exit.\n> "))
+    if num == -1 or num == 'e':
         break
     numList.append(num)
     numList.sort()
-    print(numList)
+    
+print(numList)
