@@ -1,5 +1,6 @@
 import random
-import math
+import math as math
+
 """
     printList
 
@@ -112,9 +113,17 @@ def withinRange(lst, offset, rnge):
 """
 
 def calculateAverage(lst):
+    # Initialize a variable to store the sum of all numbers
     sum = 0
+    
+    # Iterate through each number in the list
     for k in lst:
+        # Add the current number to the sum
         sum += k
+    
+    # Calculate the average by dividing the sum by the number of numbers
+    # len(lst) gives us the number of numbers in the list
+    # Return the calculated average
     return sum / len(lst) 
 
 
@@ -132,12 +141,15 @@ def calculateAverage(lst):
 
 def computeStandardDeviation(lst):
     # call your calculateAverage method
-    #
+    calculateAverage(lst)
     # compute the standard deviation
-    return 0
+    for k in lst:
+        z = (k - calculateAverage(lst))**2
+        sd = math.sqrt(z)
+    # return the standard deviation
+    return sd
 
 
-#
 #  complete the functions and then test with the code below
 myList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 printList("test", myList)
