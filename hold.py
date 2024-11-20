@@ -11,7 +11,10 @@ def createList(numGrades,minG,maxG):
 
 def populate_dictionary(dict, sList):
     minG = 0
+    # Iterate through each student in the list
     for student in sList:
+        # Create a list of 5 random grades between minG and 100 for the student
+        # Store this list as the value for the student's name key in the dictionary
         dict[student] = createList(5,minG,100)
         minG += 10
 

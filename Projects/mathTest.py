@@ -47,19 +47,19 @@ import time
 random.seed()
 
 # Variables go here
-correct = 0
-incorrect = 0
-startTime = time.time()
-endTime = time.time()
-userTime = int(endTime - startTime + .5) # Round to nearest second
-question_times = []
-numQuestions = int(input("How many questions do you want?\n#: "))
+correct: int = 0
+incorrect: int = 0
+startTime: float = time.time()
+endTime: float = time.time()
+userTime: int = int(endTime - startTime + .5) # Round to nearest second
+question_times: list = []
+numQuestions: int = int(input("How many questions do you want?\n#: "))
 
 # Variables for difficulty increase
-consecutive_correct = 0
-difficulty_level = 0
-range_start = 0
-range_end = 10
+consecutive_correct: int = 0
+difficulty_level: int = 0
+range_start: int = 0
+range_end: int = 10
 
 # Code goes here 
 
