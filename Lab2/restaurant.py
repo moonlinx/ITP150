@@ -13,6 +13,7 @@ restaurant.py
 
  You do not have to check for invalid input on this assignment.
 """
+
 print("""Welcome to the Pizza Joint!
 ----- Menu -----
 Small 1.50 per slice, Whole Pie 8.00
@@ -24,44 +25,54 @@ You can buy only 1 pie at a time. You can buy 1-8 slices.
 """
 variables
     size: "S", "M", "L"
-    type: "slice" or "whole"
+    kind: "slice" or "whole"
     if slice, quantity: 1-8
 """
+slice_price = 0
+whole_price = 0
 
 # get input from the user
+size = input("""What size pizza do you want?\n
+S\n
+M\n
+L\n
+Selection: """).upper()
+kind = input("""Do style of pizza do you want? (Whole, Slice):\n
+> """)
+quantity = int(input("""How much pizza do you want? (1-8)"""))
 
-size = input("What size do you want? (S, M, L): ").upper()
-kind = input("What kind of pizza do you want? (slice, whole): ")
-quantity = int(input("How many slices do you want? "))
-# determine price based on input
-if size == "S":
-    #prices for small pizza slice
-    slice_price = 1.50
-    whole_price = 8.00
-elif size == "M":
-    #prices for medium pizza slice
-    slice_price = 1.75
-    whole_price = 10.00
-elif size == "L":
-    #prices for large pizza slice
-    slice_price = 2.00
-    whole_price = 12.00
-else:
-    print("Invalid size")
-
-if kind == "slice":
-    #price for slice
-    price = slice_price
-    subtotal = slice_price * quantity
-elif kind == "whole":
-    #price for whole
-    price = whole_price
-    subtotal = whole_price * quantity
-else:
-    print("Invalid kind")
-
-# add a sales tax of 6%
-tax = subtotal * 0.06
+# size = input("What size do you want? (S, M, L): ").upper()
+# kind = input("What kind of pizza do you want? (slice, whole): ")
+# quantity = int(input("How many slices do you want? "))
+# # determine price based on input
+# if size == "S":
+#     # prices for small pizza slice
+#     slice_price = 1.50
+#     whole_price = 8.00
+# elif size == "M":
+#     # prices for medium pizza slice
+#     slice_price = 1.75
+#     whole_price = 10.00
+# elif size == "L":
+#     # prices for large pizza slice
+#     slice_price = 2.00
+#     whole_price = 12.00
+# else:
+#     print("Invalid size")
+#
+# if kind == "slice":
+#     # price for slice
+#     price = slice_price
+#     subtotal = slice_price * quantity
+# elif kind == "whole":
+#     # price for whole
+#     price = whole_price
+#     subtotal = whole_price * quantity
+# else:
+#     print("Invalid kind")
+#
+# # add a sales tax of 6%
+# tax = subtotal * 0.06
 # display the price and total
 print("\n----- Order Summary -----")
 print(f"Size: {size}")
